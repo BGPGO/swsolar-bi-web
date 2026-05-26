@@ -1,0 +1,28 @@
+# Credenciais
+.env
+.env.local
+
+# Build artifacts (raw JSON — data.js e app.bundle.js são commitados pra deploy)
+data/
+
+# Temp
+_report_data.json
+
+# bi.config.js é cliente-específico mas NÃO tem secrets — é tracked pra cada repo cliente.
+# Mantém aqui só pra referência (descomente se quiser experimentar local sem commitar).
+# bi.config.js
+
+# Node
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
+*.log
+
+# Editor
+.vscode/
+.idea/
+
+# Não ignora QUICK_START.pdf — ele é distribuído junto pra time não-dev
+# QUICK_START.pdf

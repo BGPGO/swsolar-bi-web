@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>BGP GO BI — SW Solar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <!-- React PRODUCTION (minificado, ~10x mais rapido que development build) -->
+  <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin></script>
+  <!-- SheetJS para exportação Excel -->
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script>
+    // Le filtro persistido ANTES do data.js, pq data.js usa window.BIT_FILTER pra montar BIT inicial.
+    try { window.BIT_FILTER = localStorage.getItem('bi.statusFilter') || 'realizado'; }
+    catch (e) { window.BIT_FILTER = 'realizado'; }
+    // URL da API de geracao on-demand de relatorio IA. Usado pelo PageRelatorio
+    // como fallback quando o report-{year}-{month}.json estatico nao existe.
+    window.BI_REPORT_API = "";
+  </script>
+  <script src="data.js"></script>
+  <script src="data-extras.js"></script>
+  <!-- JSX pre-compilado pelo build-jsx.cjs. Sem Babel-standalone runtime. -->
+  <script src="app.bundle.js"></script>
+</body>
+</html>

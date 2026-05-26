@@ -1,0 +1,22 @@
+{
+  "name": "swsolar-bi-web",
+  "version": "0.1.0",
+  "description": "BGP BI — SW Solar (4 empresas consolidado + movimentações banco)",
+  "templateVersion": "1.1.0",
+  "private": true,
+  "scripts": {
+    "init": "node bgp-bi.cjs init",
+    "fetch": "node fetch-data.cjs",
+    "build": "node bgp-bi.cjs build",
+    "publish": "node bgp-bi.cjs publish",
+    "sync": "node bgp-bi.cjs sync"
+  },
+  "dependencies": {
+    "xlsx": "^0.18.5",
+    "esbuild": "^0.21.0",
+    "dotenv": "^16.4.5"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
