@@ -230,14 +230,6 @@ const BiExportButton = ({ statusFilter, year, month, filters }) => {
     if (window.startBiExport) window.startBiExport(ordered);
     setOpen(false);
   };
-  const submitExcel = () => {
-    if (selected.size === 0) return;
-    const ordered = visiblePages.filter(p => selected.has(p.id)).map(p => p.id);
-    var sf = statusFilter || window.BIT_FILTER || 'realizado';
-    var rg = (filters && filters.regime) || 'caixa';
-    if (window.startBiExcelExport) window.startBiExcelExport(ordered, sf, null, year, month, rg, filters);
-    setOpen(false);
-  };
   return (
     <>
       <button className="btn-ghost hd-export-bi" onClick={() => setOpen(true)} title="Exportar BI">
@@ -271,9 +263,6 @@ const BiExportButton = ({ statusFilter, year, month, filters }) => {
                 <button className="btn-ghost" onClick={() => setOpen(false)}>Cancelar</button>
                 <button className="btn-primary" onClick={submitPdf} disabled={selected.size === 0}>
                   PDF ({selected.size})
-                </button>
-                <button className="btn-primary" onClick={submitExcel} disabled={selected.size === 0} style={{ background: "var(--green, #22c55e)" }}>
-                  Excel ({selected.size})
                 </button>
               </div>
             </div>
@@ -316,7 +305,7 @@ const Header = ({ page, onToggleSidebar, statusFilter, setStatusFilter, year, se
         )}
       </div>
       <div style={{ flex: 1 }} />
-      <div className="hd-filters" style={{ display: "flex", gap: 6, alignItems: "center", flexWrap: "nowrap" }}>
+      <div className="hd-filters" style={{ display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap", overflow: "visible" }}>
         <label style={{ fontSize: 10, color: "var(--mute)", textTransform: "uppercase", letterSpacing: "0.05em" }}>De</label>
         <input type="date" className="header-year" value={(filters && filters.dateFrom) || ""} onChange={e => updateFilter({ dateFrom: e.target.value })} style={{ width: 130, fontSize: 12 }} />
         <label style={{ fontSize: 10, color: "var(--mute)", textTransform: "uppercase", letterSpacing: "0.05em" }}>Até</label>

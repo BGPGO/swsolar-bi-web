@@ -35,9 +35,16 @@ const SectionHeading = ({ strong, soft }) => (
 const OverviewBars = ({ data, height = 220, year = "2026", onBarClick, activeIdx }) => {
   const B = window.BIT;
   const max = Math.max(...data.map(d => Math.max(d.receita, d.despesa)), 1);
-  const niceMax = Math.max(Math.ceil(max / 200000) * 200000, 200000);
+  // Escala dinâmica: calcula step pra ter no máximo 5 ticks
+  const magnitude = Math.pow(10, Math.floor(Math.log10(max || 1)));
+  const rawStep = max / 4;
+  const niceStep = rawStep <= magnitude ? magnitude : rawStep <= magnitude * 2 ? magnitude * 2 : magnitude * 5;
+  const niceMax = Math.max(Math.ceil(max / niceStep) * niceStep, niceStep);
   const ticks = [];
-  for (let v = 0; v <= niceMax; v += 200000) ticks.push(v);
+  for (let v = 0; v <= niceMax; v += niceStep) ticks.push(v);
+  if (ticks.length > 6) { ticks.length = 0; for (let v = 0; v <= niceMax; v += niceStep * 2) ticks.push(v); }
+  const fmtAxis = (v) => v >= 1e6 ? `R$${(v / 1e6).toFixed(1).replace(".", ",")}M` : `R$${Math.round(v / 1000)}K`;
+  const fmtChip = (v) => v >= 1e6 ? `${(v / 1e6).toFixed(1).replace(".", ",")}M` : `${Math.round(v / 1000)}K`;
   const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1, 3);
   const hasActive = activeIdx != null && activeIdx >= 0;
 
@@ -47,7 +54,7 @@ const OverviewBars = ({ data, height = 220, year = "2026", onBarClick, activeIdx
         <div className="ov-bars-axis">
           {ticks.map((t, i) => (
             <div key={i} className="ov-bars-tick" style={{ bottom: `${(t / niceMax) * 100}%` }}>
-              <span>R${(t / 1000).toFixed(0)} K</span>
+              <span>{fmtAxis(t)}</span>
             </div>
           ))}
         </div>
@@ -65,10 +72,10 @@ const OverviewBars = ({ data, height = 220, year = "2026", onBarClick, activeIdx
               >
                 <div className="ov-bar-stack">
                   <div className="ov-bar green" style={{ height: `${rH}%` }} title={`Receita: ${B.fmt(d.receita)}`}>
-                    <span className="ov-bar-chip">R${Math.round(d.receita / 1000)} K</span>
+                    <span className="ov-bar-chip">{fmtChip(d.receita)}</span>
                   </div>
                   <div className="ov-bar red" style={{ height: `${dH}%` }} title={`Despesa: ${B.fmt(d.despesa)}`}>
-                    <span className="ov-bar-chip">R${Math.round(d.despesa / 1000)} K</span>
+                    <span className="ov-bar-chip">{fmtChip(d.despesa)}</span>
                   </div>
                 </div>
               </div>
