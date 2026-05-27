@@ -94,6 +94,9 @@ module.exports = {
     const rows = readSheet(consolidadoPath, sheetName);
     console.log(`  ${rows.length} linhas brutas`);
 
+    // Operações internas que não são receita/despesa real — excluir
+    const EXCLUIR_TIPO_OP = /^(Abatimento de Adiantamento|Distrato|Substituição|Cancelamento|Por Bens)$/i;
+
     const movimentos = [];
     for (const r of rows) {
       const tipo = String(r['Tipo'] || '').trim().toUpperCase();
@@ -102,11 +105,16 @@ module.exports = {
       const natureza = (tipo === 'A RECEBER' || tipo === 'RECEBIDO') ? 'R' : 'P';
       const realizado = (tipo === 'PAGO' || tipo === 'RECEBIDO');
 
+      // Excluir operações internas (abatimentos, distratos)
+      const tipoOp = String(r['Tipo Operação'] || r['Tipo Operacao'] || '').trim();
+      if (EXCLUIR_TIPO_OP.test(tipoOp)) continue;
+
       const valorLiquido = num(r['Líquido (R$)']) || num(r['Liquido (R$)']);
       const valorBruto = num(r['Valor (R$)']);
       const valor = Math.abs(valorLiquido || valorBruto);
       if (valor === 0) continue;
 
+      // Usar Dt. Vencimento como data principal (competência)
       const dtVenc = isoDate(r['Dt. Vencimento']);
       const dtBaixa = isoDate(r['Data Baixa/Vencimento']);
       const dtEmissao = isoDate(r['Dt. Emissão'] || r['Dt. Emissao']);
@@ -124,7 +132,8 @@ module.exports = {
         realizado,
         data_emissao: dtEmissao || dtVenc || dtBaixa,
         data_vencimento: dtVenc || dtBaixa || dtEmissao,
-        data_pagamento: realizado ? (dtBaixa || dtVenc) : null,
+        // Data efetiva: receita usa Data Baixa (caixa), despesa usa Dt. Vencimento (competência)
+        data_pagamento: natureza === 'R' ? (dtBaixa || dtVenc || dtEmissao) : (dtVenc || dtBaixa || dtEmissao),
         valor_total: valor,
         valor_pago: realizado ? valor : 0,
         valor_aberto: realizado ? 0 : valor,
