@@ -218,13 +218,16 @@ const PageOverview = ({ filters, setFilters, onOpenFilters, statusFilter, drilld
     if (!drilldown) txs = txs.filter(r => r[1] && r[1].startsWith(String(year || refYear)));
 
     var impostos = 0, capex = 0, juros = 0;
+    var reImposto = /imposto|icms|pis[\s\/]|cofins|iss[\s\/]|ipi[\s\/]|irpj|irrf|csll|simples|tribut|inss|fgts|dedu[cç][oõ]|DAS\b|reten[cç][aã]o/i;
+    var reCapex = /equip|veicul|ve[ií]culo|maquin|imobili|investimento|bens/i;
+    var reJuros = /amortiza|empr[eé]stimo|juros|financ/i;
     for (var i = 0; i < txs.length; i++) {
       if (txs[i][0] !== "d") continue;
       var cat = txs[i][3] || "";
       var val = txs[i][5];
-      if (cat.startsWith("02.")) impostos += val;
-      else if (cat.startsWith("05.")) capex += val;
-      else if (cat.indexOf("AMORTIZA") >= 0 || cat.startsWith("10.")) juros += val;
+      if (cat.startsWith("02.") || reImposto.test(cat)) impostos += val;
+      else if (cat.startsWith("05.") || reCapex.test(cat)) capex += val;
+      else if (cat.startsWith("10.") || reJuros.test(cat)) juros += val;
     }
     // EBITDA: lucro antes dos juros e impostos = Receita - (Despesa - Impostos - Juros/Amort)
     var ebitda = B.TOTAL_RECEITA - (B.TOTAL_DESPESA - impostos - juros);
