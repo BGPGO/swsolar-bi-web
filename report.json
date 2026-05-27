@@ -1,1 +1,35 @@
-{}
+{
+  "generated_at": "2026-05-27T14:52:01.030Z",
+  "empresa": "SW Solar",
+  "periodo": "Ano 2026 (YTD)",
+  "year": 2026,
+  "month": null,
+  "filter": "realizado",
+  "secoes": {
+    "visao_geral": {
+      "title": "Visao Geral",
+      "analysis": "No periodo de Ano 2026 (YTD), a SW Solar registrou receita total de R$ 7.065.086,92 contra despesas de R$ 6.481.420,74, resultando em valor liquido de R$ 583.666,18 e margem liquida de 8,3%. O melhor resultado mensal foi em janeiro com saldo de R$ 1.281.080,90, enquanto abril apresentou o resultado mais desafiador com -R$ 627.859,18. As principais fontes de receita foram Receitas de Serviços (R$ 5.266.730,52), Receita com Venda de Mercadorias (R$ 1.798.356,40).\n\nA empresa manteve resultado positivo no periodo, demonstrando capacidade de geracao de caixa operacional. As maiores categorias de despesa foram Mercadoria para revenda (R$ 1.777.493,36), Materiais Elétricos (R$ 702.274,92), Serviços Prestados por PJ (R$ 573.219,38). A margem liquida merece atencao para garantir sustentabilidade a medio prazo."
+    },
+    "receita": {
+      "title": "Receita",
+      "analysis": "A receita total realizada no periodo foi de R$ 7.065.086,92, distribuida ao longo de 5 meses com dados. As principais categorias de receita foram Receitas de Serviços (R$ 5.266.730,52), Receita com Venda de Mercadorias (R$ 1.798.356,40). O mes com maior receita foi janeiro com R$ 2.750.699,79.\n\nE recomendavel monitorar a concentracao de receita nas principais categorias para mitigar riscos de dependencia e buscar diversificacao das fontes de faturamento."
+    },
+    "despesa": {
+      "title": "Despesa",
+      "analysis": "As despesas totais no periodo somaram R$ 6.481.420,74, com as principais categorias sendo Mercadoria para revenda (R$ 1.777.493,36), Materiais Elétricos (R$ 702.274,92), Serviços Prestados por PJ (R$ 573.219,38). O mes com maior volume de despesas foi fevereiro com R$ 1.604.431,95. A relacao despesa/receita ficou em 91,7%.\n\nAs despesas estao dentro de um patamar controlado em relacao a receita. Recomenda-se analise detalhada das categorias com maior crescimento para identificar oportunidades de otimizacao."
+    },
+    "fluxo_caixa": {
+      "title": "Fluxo de Caixa",
+      "analysis": "O fluxo de caixa do periodo apresentou entradas de R$ 7.065.086,92 e saidas de R$ 6.481.420,74, resultando em fluxo liquido de R$ 583.666,18. A evolucao mensal mostra 2 meses com saldo positivo e 3 meses com saldo negativo.\n\nO fluxo de caixa acumulado permaneceu positivo, indicando boa gestao de liquidez. A analise dos saldos acumulados mes a mes permite identificar periodos de maior pressao sobre o caixa e planejar antecipadamente eventuais necessidades de financiamento."
+    },
+    "tesouraria": {
+      "title": "Tesouraria",
+      "analysis": "A posicao de tesouraria mostra um total recebido de R$ 7.065.086,92 e total pago de R$ 6.481.420,74 no periodo, com saldo liquido de R$ 583.666,18.\n\nA gestao de tesouraria deve manter atencao aos prazos de recebimento e pagamento para evitar descasamentos. O saldo positivo proporciona margem de seguranca para operacoes do proximo periodo."
+    },
+    "comparativo": {
+      "title": "Comparativo",
+      "analysis": "Comparando os trimestres de Ano 2026 (YTD), observam-se variacoes relevantes tanto na receita quanto na despesa. A analise trimestral permite identificar tendencias sazonais.\n\nRecomenda-se acompanhar a evolucao mes a mes para identificar tendencias de crescimento ou retracao, permitindo ajustes estrategicos tempestivos."
+    }
+  },
+  "conclusao": "A SW Solar encerrou o periodo com resultado liquido positivo de R$ 583.666,18, demonstrando capacidade operacional. Margem liquida de 8,3%.\n\nRecomendacoes: (1) Monitorar as principais categorias de despesa para identificar oportunidades de reducao. (2) Diversificar fontes de receita. (3) Implementar projecoes de fluxo de caixa para antecipar periodos de pressao financeira."
+}
