@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-27T14:52:01.039Z",
+  "generated_at": "2026-05-27T03:00:00.000Z",
   "empresa": "SW Solar",
   "periodo": "Maio/2026",
   "year": 2026,
@@ -7,29 +7,29 @@
   "filter": "realizado",
   "secoes": {
     "visao_geral": {
-      "title": "Visao Geral",
-      "analysis": "No periodo de Maio/2026, a SW Solar registrou receita total de R$ 313.357,27 contra despesas de R$ 433.783,84, resultando em valor liquido de -R$ 120.426,57 e margem liquida de -38,4%.  As principais fontes de receita foram Receitas de Serviços (R$ 5.266.730,52), Receita com Venda de Mercadorias (R$ 1.798.356,40).\n\nA empresa apresentou resultado negativo no periodo, indicando que as saidas superaram as entradas. As maiores categorias de despesa foram Mercadoria para revenda (R$ 1.777.493,36), Materiais Elétricos (R$ 702.274,92), Serviços Prestados por PJ (R$ 573.219,38). A margem liquida esta em patamar critico e requer acoes imediatas de controle de custos."
+      "title": "Visão Geral",
+      "analysis": "Em maio de 2026, a SW Solar registrou receita de R$ 313.357,27 e despesas de R$ 433.783,84, resultando em déficit de R$ 120.426,57 e margem de -38,43%. Embora negativo, a redução significativa nas despesas (de R$ 1,43 milhão para R$ 434 mil) sinaliza início de ajuste na estrutura de custos.\n\nA inversão no mix de receita — com Venda de Mercadorias (R$ 252.629) superando Serviços (R$ 60.728) pela primeira vez — indica mudança no perfil de atividade. A receita de serviços de apenas R$ 60.728 sugere vazio na carteira de projetos."
     },
     "receita": {
       "title": "Receita",
-      "analysis": "A receita total realizada no periodo foi de R$ 313.357,27, distribuida ao longo de 1 meses com dados. As principais categorias de receita foram Receitas de Serviços (R$ 5.266.730,52), Receita com Venda de Mercadorias (R$ 1.798.356,40).\n\nE recomendavel monitorar a concentracao de receita nas principais categorias para mitigar riscos de dependencia e buscar diversificacao das fontes de faturamento."
+      "analysis": "A receita de maio totalizou R$ 313.357,27, com Venda de Mercadorias (R$ 252.629) superando Receitas de Serviços (R$ 60.728). Pela primeira vez no ano, mercadorias representaram 80,6% da receita.\n\nCom apenas R$ 60.728 em serviços, maio aponta para um vazio na carteira de projetos. A empresa deve priorizar prospecção comercial e revisão do pipeline para os próximos meses."
     },
     "despesa": {
       "title": "Despesa",
-      "analysis": "As despesas totais no periodo somaram R$ 433.783,84, com as principais categorias sendo Mercadoria para revenda (R$ 1.777.493,36), Materiais Elétricos (R$ 702.274,92), Serviços Prestados por PJ (R$ 573.219,38).  A relacao despesa/receita ficou em 138,4%.\n\nAs despesas superaram as receitas no periodo, sinalizando necessidade de revisao da estrutura de custos. Recomenda-se analise detalhada das categorias com maior crescimento para identificar oportunidades de otimizacao."
+      "analysis": "As despesas de maio somaram R$ 433.783,84, com Materiais Elétricos (R$ 110.288), Serviços PJ (R$ 75.446), Salários (R$ 32.975), Mão de Obra Contratada (R$ 26.653) e Abastecimento (R$ 25.235). A redução para R$ 434 mil (queda de 69,6% vs. abril) demonstra ajuste.\n\nA queda expressiva resulta da redução em Mercadoria para Revenda e Materiais Construção, indicando menor volume de projetos. Custos com pessoal (R$ 59.628) representam 13,7% do total."
     },
     "fluxo_caixa": {
       "title": "Fluxo de Caixa",
-      "analysis": "O fluxo de caixa do periodo apresentou entradas de R$ 313.357,27 e saidas de R$ 433.783,84, resultando em fluxo liquido de -R$ 120.426,57. \n\nO fluxo de caixa acumulado ficou negativo, o que pode pressionar a necessidade de capital de giro. A analise dos saldos acumulados mes a mes permite identificar periodos de maior pressao sobre o caixa e planejar antecipadamente eventuais necessidades de financiamento."
+      "analysis": "O fluxo de caixa de maio foi negativo em R$ 120.426,57, porém com magnitude significativamente menor que abril (-R$ 627.859). O acumulado do período permanece positivo em R$ 583.666, sustentado pelos primeiros meses.\n\nApesar do déficit, a redução na queima de caixa é um sinal positivo. A tendência precisa se confirmar nos próximos meses."
     },
     "tesouraria": {
       "title": "Tesouraria",
-      "analysis": "A posicao de tesouraria mostra um total recebido de R$ 313.357,27 e total pago de R$ 433.783,84 no periodo, com saldo liquido de -R$ 120.426,57.\n\nA gestao de tesouraria deve manter atencao aos prazos de recebimento e pagamento para evitar descasamentos. O saldo negativo acumulado indica necessidade de atencao redobrada ao fluxo de curto prazo."
+      "analysis": "A tesouraria em maio operou sob pressão moderada com déficit de R$ 120.427. A ausência de aplicações financeiras relevantes sugere que o excedente dos primeiros meses foi significativamente consumido.\n\nA gestão de tesouraria deve priorizar preservação de liquidez, renegociando prazos com fornecedores e acelerando recebimentos."
     },
     "comparativo": {
       "title": "Comparativo",
-      "analysis": "Com 1 meses de dados disponiveis, a base comparativa ainda esta em formacao.\n\nRecomenda-se acompanhar a evolucao mes a mes para identificar tendencias de crescimento ou retracao, permitindo ajustes estrategicos tempestivos."
+      "analysis": "Maio mostrou sinais mistos: receita caiu 60,9% vs. abril, mas despesas recuaram 69,6%, melhorando a margem de -78,31% para -38,43%. A queda mais acelerada nas despesas sugere início de adequação.\n\nA necessidade de manter o esforço de redução de custos e simultaneamente recuperar o volume de receita de serviços é o principal desafio para os próximos meses."
     }
   },
-  "conclusao": "Em Maio/2026, a SW Solar registrou receita de R$ 313.357,27 e despesas de R$ 433.783,84, com resultado liquido de -R$ 120.426,57. O resultado negativo do mes demanda atencao.\n\nRecomenda-se acompanhar as categorias com maior variacao e manter controle rigoroso do fluxo de caixa."
+  "conclusao": "Maio encerra com receita mínima de R$ 313.357, porém a redução nas despesas para R$ 433.784 indica ajustes em curso. A margem de -38,43%, embora negativa, melhora frente aos -78,31% de abril.\n\nRecomenda-se: (1) manter redução de custos; (2) priorizar projetos de maior margem; (3) avaliar parcerias estratégicas para alcance comercial; e (4) preparar plano de contingência caso a baixa receita persista."
 }

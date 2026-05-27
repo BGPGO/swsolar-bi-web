@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-27T14:52:01.038Z",
+  "generated_at": "2026-05-27T03:00:00.000Z",
   "empresa": "SW Solar",
   "periodo": "Abril/2026",
   "year": 2026,
@@ -7,29 +7,29 @@
   "filter": "realizado",
   "secoes": {
     "visao_geral": {
-      "title": "Visao Geral",
-      "analysis": "No periodo de Abril/2026, a SW Solar registrou receita total de R$ 801.777,92 contra despesas de R$ 1.429.637,10, resultando em valor liquido de -R$ 627.859,18 e margem liquida de -78,3%.  As principais fontes de receita foram Receitas de Serviços (R$ 5.266.730,52), Receita com Venda de Mercadorias (R$ 1.798.356,40).\n\nA empresa apresentou resultado negativo no periodo, indicando que as saidas superaram as entradas. As maiores categorias de despesa foram Mercadoria para revenda (R$ 1.777.493,36), Materiais Elétricos (R$ 702.274,92), Serviços Prestados por PJ (R$ 573.219,38). A margem liquida esta em patamar critico e requer acoes imediatas de controle de custos."
+      "title": "Visão Geral",
+      "analysis": "Em abril de 2026, a SW Solar registrou receita de R$ 801.777,92 e despesas de R$ 1.429.637,10, resultando no pior resultado do ano: déficit de R$ 627.859,18 com margem de -78,31%. A receita representou apenas 29,1% do valor de janeiro, enquanto as despesas permaneceram elevadas.\n\nAbril aprofundou a tendência negativa com a pior margem do ano. A relação despesa/receita de 1,78x indica grave desequilíbrio operacional que precisa ser corrigido com urgência."
     },
     "receita": {
       "title": "Receita",
-      "analysis": "A receita total realizada no periodo foi de R$ 801.777,92, distribuida ao longo de 1 meses com dados. As principais categorias de receita foram Receitas de Serviços (R$ 5.266.730,52), Receita com Venda de Mercadorias (R$ 1.798.356,40).\n\nE recomendavel monitorar a concentracao de receita nas principais categorias para mitigar riscos de dependencia e buscar diversificacao das fontes de faturamento."
+      "analysis": "A receita de abril totalizou R$ 801.777,92, com Receitas de Serviços (R$ 561.142) e Venda de Mercadorias (R$ 240.636). A receita de serviços caiu 51,7% em relação a março, confirmando a tendência de retração.\n\nApesar da queda, serviços ainda lideraram com 70% do total. A empresa deve priorizar prospecção comercial e revisão do pipeline para reverter a tendência."
     },
     "despesa": {
       "title": "Despesa",
-      "analysis": "As despesas totais no periodo somaram R$ 1.429.637,10, com as principais categorias sendo Mercadoria para revenda (R$ 1.777.493,36), Materiais Elétricos (R$ 702.274,92), Serviços Prestados por PJ (R$ 573.219,38).  A relacao despesa/receita ficou em 178,3%.\n\nAs despesas superaram as receitas no periodo, sinalizando necessidade de revisao da estrutura de custos. Recomenda-se analise detalhada das categorias com maior crescimento para identificar oportunidades de otimizacao."
+      "analysis": "As despesas de abril somaram R$ 1.429.637,10, com Mercadoria para Revenda (R$ 453.382), Materiais Elétricos (R$ 201.295), Materiais Construção (R$ 132.961), Serviços PJ (R$ 117.921) e Aplicação Financeira (R$ 51.785). As despesas representam 1,78x a receita.\n\nA rigidez da estrutura de custos é o principal fator de deterioração. Materiais Elétricos e Construção mantêm-se elevados, possivelmente vinculados a projetos em andamento."
     },
     "fluxo_caixa": {
       "title": "Fluxo de Caixa",
-      "analysis": "O fluxo de caixa do periodo apresentou entradas de R$ 801.777,92 e saidas de R$ 1.429.637,10, resultando em fluxo liquido de -R$ 627.859,18. \n\nO fluxo de caixa acumulado ficou negativo, o que pode pressionar a necessidade de capital de giro. A analise dos saldos acumulados mes a mes permite identificar periodos de maior pressao sobre o caixa e planejar antecipadamente eventuais necessidades de financiamento."
+      "analysis": "O fluxo de caixa de abril foi negativo em R$ 627.859,18, o déficit mais severo do ano. O acumulado recuou para R$ 704.093 positivos, consumindo quase metade do colchão dos primeiros meses.\n\nA continuidade deste padrão por mais um ou dois meses pode comprometer a capacidade de honrar compromissos operacionais. Ações drásticas de contenção são necessárias."
     },
     "tesouraria": {
       "title": "Tesouraria",
-      "analysis": "A posicao de tesouraria mostra um total recebido de R$ 801.777,92 e total pago de R$ 1.429.637,10 no periodo, com saldo liquido de -R$ 627.859,18.\n\nA gestao de tesouraria deve manter atencao aos prazos de recebimento e pagamento para evitar descasamentos. O saldo negativo acumulado indica necessidade de atencao redobrada ao fluxo de curto prazo."
+      "analysis": "A tesouraria em abril sofreu forte pressão com déficit de R$ 627.859. As aplicações financeiras de R$ 51.785 indicam que a empresa ainda mantém alguma liquidez, porém o ritmo de consumo é insustentável.\n\nRecomenda-se congelar investimentos e renegociar contratos para preservar liquidez. A situação exige ação imediata."
     },
     "comparativo": {
       "title": "Comparativo",
-      "analysis": "Com 1 meses de dados disponiveis, a base comparativa ainda esta em formacao.\n\nRecomenda-se acompanhar a evolucao mes a mes para identificar tendencias de crescimento ou retracao, permitindo ajustes estrategicos tempestivos."
+      "analysis": "Abril registrou a pior performance do ano: receita 36,5% menor que março e margem de -78,31%. A relação despesa/receita de 1,78x indica grave desequilíbrio.\n\nA receita caiu 70,8% desde janeiro, enquanto as despesas reduziram apenas 2,7%. Ações urgentes são necessárias para reverter a trajetória."
     }
   },
-  "conclusao": "Em Abril/2026, a SW Solar registrou receita de R$ 801.777,92 e despesas de R$ 1.429.637,10, com resultado liquido de -R$ 627.859,18. O resultado negativo do mes demanda atencao.\n\nRecomenda-se acompanhar as categorias com maior variacao e manter controle rigoroso do fluxo de caixa."
+  "conclusao": "Abril registrou o pior resultado do ano, com déficit de R$ 627.859 e margem de -78,31%. A receita de R$ 801.778 foi insuficiente para cobrir a estrutura de custos de R$ 1,43 milhão.\n\nRecomenda-se: (1) congelar contratações e investimentos; (2) renegociar contratos com fornecedores; (3) prospecção intensiva para recompor carteira; e (4) considerar crédito emergencial para preservar liquidez."
 }
