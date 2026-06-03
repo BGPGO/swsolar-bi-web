@@ -1,4 +1,4 @@
-/* BGP BI — gerado por build-data.cjs em 2026-06-03T15:05:17.419Z */
+/* BGP BI — gerado por build-data.cjs em 2026-06-03T21:04:17.330Z */
 /* Empresa: SW Solar | Ano ref: 2026 */
 const MONTHS = ["jan","fev","mar","abr","mai","jun","jul","ago","set","out","nov","dez"];
 const MONTHS_FULL = ["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"];
@@ -23,7 +23,7 @@ const META = {
   "empresa": {
     "nome_fantasia": "SW Solar"
   },
-  "fetched_at": "2026-06-03T15:05:16.412Z",
+  "fetched_at": "2026-06-03T21:04:16.375Z",
   "ref_year": 2026,
   "counts": {
     "contas_pagar": 0,
