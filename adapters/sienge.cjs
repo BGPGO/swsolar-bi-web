@@ -121,7 +121,6 @@ function sumPaymentLiquido(payments) {
 // ── mapeamento por linha → movimento canonical ──────────────────────────────
 function makeMovimentoOutcome(r, idSeq) {
   const payments = r.payments || [];
-  const pago = payments.length > 0;
   const tipoOp = lastOperationName(payments) || '';
 
   // Mesma exclusão do swsolar-xlsx
@@ -129,13 +128,17 @@ function makeMovimentoOutcome(r, idSeq) {
     return null;
   }
 
+  // Regra (definida pelo cliente): existência de data de baixa = título pago.
+  // Sem data de baixa = ainda em aberto, mesmo que tenha payments sem paymentDate.
+  const dtBaixa = lastPaymentDate(payments);
+  const pago = dtBaixa !== null;
+
   const valorBruto = r.originalAmount || 0;
   const valorLiquido = pago ? sumPaymentLiquido(payments) : valorBruto;
   const valor = Math.abs(valorLiquido || valorBruto);
   if (valor === 0) return null;
 
   const dtVenc = parseDate(r.dueDate);
-  const dtBaixa = pago ? lastPaymentDate(payments) : dtVenc;
   const dtEmissao = parseDate(r.issueDate);
   if (!dtVenc && !dtBaixa && !dtEmissao) return null;
 
@@ -148,8 +151,8 @@ function makeMovimentoOutcome(r, idSeq) {
     realizado: pago,
     data_emissao: dtEmissao || dtVenc || dtBaixa,
     data_vencimento: dtVenc || dtBaixa || dtEmissao,
-    // despesa usa Dt. Vencimento como data efetiva (competência) — igual swsolar-xlsx
-    data_pagamento: dtVenc || dtBaixa || dtEmissao,
+    // Data efetiva (regime de caixa): baixa quando existe, senão vencimento
+    data_pagamento: dtBaixa || dtVenc || dtEmissao,
     valor_total: valor,
     valor_pago: pago ? valor : 0,
     valor_aberto: pago ? 0 : valor,
@@ -166,12 +169,15 @@ function makeMovimentoOutcome(r, idSeq) {
 
 function makeMovimentoIncome(r, idSeq) {
   const receipts = r.receipts || [];
-  const recebido = receipts.length > 0;
   const tipoOp = lastOperationName(receipts) || '';
 
   if (/^(Abatimento de Adiantamento|Distrato|Substituição|Cancelamento|Por Bens)$/i.test(tipoOp)) {
     return null;
   }
+
+  // Mesma regra do outcome: data de baixa define se foi recebido.
+  const dtBaixa = lastPaymentDate(receipts);
+  const recebido = dtBaixa !== null;
 
   const valorBruto = r.originalAmount || 0;
   const valorLiquido = recebido ? sumPaymentLiquido(receipts) : valorBruto;
@@ -179,7 +185,6 @@ function makeMovimentoIncome(r, idSeq) {
   if (valor === 0) return null;
 
   const dtVenc = parseDate(r.dueDate);
-  const dtBaixa = recebido ? lastPaymentDate(receipts) : dtVenc;
   const dtEmissao = parseDate(r.issueDate);
   if (!dtVenc && !dtBaixa && !dtEmissao) return null;
 
