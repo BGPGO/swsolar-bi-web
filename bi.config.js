@@ -4,7 +4,7 @@ module.exports = {
   cliente: {
     nome: "SW Solar",
     subdomain: "swsolar-bi",
-    coolify_app_uuid: "",
+    coolify_app_uuid: "smgyur5ban03nxmamvkdlxht",
     cor_primaria: "#f59e0b",
   },
   fontes: {
