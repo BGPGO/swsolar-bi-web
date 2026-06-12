@@ -8,7 +8,14 @@ module.exports = {
     cor_primaria: "#f59e0b",
   },
   fontes: {
-    adapters: ["swsolar-xlsx"],
+    adapters: ["sienge"],
+    sienge: {
+      subdomain: "swsolarenergia",
+      start_date: "2025-01-01",
+      future_offset_days: 730,
+    },
+    // legado — adapter swsolar-xlsx mantido no registry como fallback,
+    // mas não usado por padrão. Pra reativar: trocar adapters: ["swsolar-xlsx"].
     swsolar_xlsx: {
       consolidado_file: "BGP_Financeiro_Consolidado.xlsx",
       consolidado_sheet: "CONSOLIDADO",
