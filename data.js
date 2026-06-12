@@ -1,4 +1,4 @@
-/* BGP BI — gerado por build-data.cjs em 2026-06-12T19:56:11.050Z */
+/* BGP BI — gerado por build-data.cjs em 2026-06-12T21:18:04.628Z */
 /* Empresa: SW Solar | Ano ref: 2026 */
 const MONTHS = ["jan","fev","mar","abr","mai","jun","jul","ago","set","out","nov","dez"];
 const MONTHS_FULL = ["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"];
@@ -17154,7 +17154,8 @@ const AVAILABLE_YEARS = [2027,2026,2025,2024];
 // aggregateTx: recomputa MONTH_DATA, KPIS, top categorias/clientes/fornecedores
 // e EXTRATO a partir de uma lista filtrada de transacoes. Chamada pelas Pages
 // quando drilldown ou statusFilter estao ativos.
-function aggregateTx(txList, year) {
+function aggregateTx(txList, year, opts) {
+  var __ignoreYear = opts && opts.ignoreYearFilter;
   year = year || REF_YEAR;
   const months = ["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"];
   const MONTH_DATA = months.map(m => ({ m, receita: 0, despesa: 0 }));
@@ -17170,7 +17171,7 @@ function aggregateTx(txList, year) {
     const [kind, mes, dia, categoria, cliente, valor, realizado, fornecedor, cc] = row;
     if (!mes) continue;
     const ymonth = mes.slice(0,4);
-    if (Number(ymonth) !== year) continue;
+    if (!__ignoreYear && Number(ymonth) !== year) continue;
     const mIdx = parseInt(mes.slice(5,7), 10) - 1;
     if (mIdx < 0 || mIdx > 11) continue;
     if (kind === 'r') {
@@ -17357,7 +17358,10 @@ window.getBit = function (statusFilter, drilldown, year, month, regime, extraFil
 // com KPIs/charts/extrato recalculados em ~10ms (17k rows).
 window.recomputeBit = function (statusFilter, drilldown, year, regime, extraFilters) {
   const filtered = filterTx(ALL_TX, statusFilter, drilldown, regime || 'caixa', extraFilters);
-  const agg = aggregateTx(filtered, year || REF_YEAR);
+  // Quando o usuário aplicou filtro DE/ATÉ, ignorar restrição de ano —
+  // permite ver lançamentos de qualquer ano (cliente pediu).
+  const hasDateFilter = extraFilters && (extraFilters.dateFrom || extraFilters.dateTo);
+  const agg = aggregateTx(filtered, year || REF_YEAR, { ignoreYearFilter: hasDateFilter });
   // Mescla com BIT base pra preservar META, helpers (fmt, fmtK), MONTHS etc.
   const base = window.BIT || {};
   return Object.assign({}, base, agg, {

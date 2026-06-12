@@ -93,7 +93,8 @@ const PageDRE = ({ filters, setFilters, statusFilter, drilldown, setDrilldown, y
     const rg = regime === "competencia" ? "k" : "c";
     const sf = statusFilter || "realizado";
     var txs = window.filterTx ? window.filterTx(allTx, sf, null, rg, filters) : allTx;
-    txs = txs.filter(r => r[1] && r[1].startsWith(String(refYear)));
+    const hasDateFilter = filters && (filters.dateFrom || filters.dateTo);
+    if (!hasDateFilter) txs = txs.filter(r => r[1] && r[1].startsWith(String(refYear)));
 
     // cat -> [12 months]
     const catMonths = new Map();
