@@ -420,13 +420,15 @@ function buildExtrato(rec, desp, limit = 20000) {
     const r = [fmtBR(t.data_efetiva), t.centroCusto || 'Operações', t.categoria, t.cliente, -t.valor, t.status];
     all.push(r); despArr.push(r);
   }
-  // sort por data desc
+  // sort por data desc (EXTRATO geral e EXTRATO_RECEITAS)
+  // EXTRATO_DESPESAS: asc (cliente pediu dia 1 -> 31)
   const sortDesc = (a, b) => {
     const [da, ma, ya] = (a[0] || '01/01/1970').split('/').map(Number);
     const [db, mb, yb] = (b[0] || '01/01/1970').split('/').map(Number);
     return new Date(yb, mb - 1, db) - new Date(ya, ma - 1, da);
   };
-  all.sort(sortDesc); recArr.sort(sortDesc); despArr.sort(sortDesc);
+  const sortAsc = (a, b) => -sortDesc(a, b);
+  all.sort(sortDesc); recArr.sort(sortDesc); despArr.sort(sortAsc);
   return {
     EXTRATO: all.slice(0, limit),
     EXTRATO_RECEITAS: recArr.slice(0, limit),
@@ -696,15 +698,17 @@ function aggregateTx(txList, year, opts) {
     if (kind === 'r') extratoRecArr.push(extRow); else extratoDespArr.push(extRow);
   }
 
-  // sort por data desc (string DD/MM/YYYY → Date) — aplica nos 3 arrays
+  // EXTRATO geral e EXTRATO_RECEITAS: data desc (mais recente primeiro).
+  // EXTRATO_DESPESAS: data asc (cliente pediu dia 1 -> 31).
   const sortByDateDesc = (a, b) => {
     const [da,ma,ya] = a[0].split('/').map(Number);
     const [db,mb,yb] = b[0].split('/').map(Number);
     return new Date(yb,mb-1,db) - new Date(ya,ma-1,da);
   };
+  const sortByDateAsc = (a, b) => -sortByDateDesc(a, b);
   extratoArr.sort(sortByDateDesc);
   extratoRecArr.sort(sortByDateDesc);
-  extratoDespArr.sort(sortByDateDesc);
+  extratoDespArr.sort(sortByDateAsc);
 
   const topN = (mp, n) => Array.from(mp.entries()).map(([name,value]) => ({name,value})).sort((a,b)=>b.value-a.value).slice(0,n);
   const VALOR_LIQUIDO = totalReceita - totalDespesa;
