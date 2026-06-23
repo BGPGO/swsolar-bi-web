@@ -604,7 +604,7 @@ const PageDespesa = ({ filters, setFilters, onOpenFilters, statusFilter, drilldo
           <div className="card-title-row">
             <h2 className="card-title">Extrato de despesas {drilldown ? `· ${drilldown.label}` : ""}</h2>
           </div>
-          <div className="t-scroll">
+          <div className="t-scroll" style={{ maxHeight: 500 }}>
             <table className="t">
               <thead>
                 <tr><th>Data</th><th>Categoria</th><th>Fornecedor</th><th className="num">Despesa</th></tr>
