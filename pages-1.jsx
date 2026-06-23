@@ -600,11 +600,11 @@ const PageDespesa = ({ filters, setFilters, onOpenFilters, statusFilter, drilldo
           <BarList items={BFull.DESPESA_CATEGORIAS} color="red" onItemClick={handleCategoria} activeName={activeCategoria} />
         </div>
 
-        <div className="card" style={{ display: "grid", gridTemplateRows: "auto 1fr", minHeight: 0, overflow: "hidden" }}>
+        <div className="card">
           <div className="card-title-row">
             <h2 className="card-title">Extrato de despesas {drilldown ? `· ${drilldown.label}` : ""}</h2>
           </div>
-          <div className="t-scroll" style={{ minHeight: 0, maxHeight: "none", overflowY: "auto" }}>
+          <div className="t-scroll">
             <table className="t">
               <thead>
                 <tr><th>Data</th><th>Categoria</th><th>Fornecedor</th><th className="num">Despesa</th></tr>
