@@ -409,7 +409,7 @@ function buildClienteAgg(items, year) {
   return Array.from(map.values()).sort((a, b) => b.value - a.value).slice(0, 12);
 }
 
-function buildExtrato(rec, desp, limit = 200) {
+function buildExtrato(rec, desp, limit = 20000) {
   // tupla compativel com mock: [data, cc, categoria, cliente, valor, status]
   const all = [], recArr = [], despArr = [];
   for (const t of rec) {
@@ -452,7 +452,7 @@ function buildSegment(rec, desp, year, label) {
   const DESPESA_CATEGORIAS = buildCategoriaAgg(d, year, 'despesa');
   const RECEITA_CLIENTES = buildClienteAgg(r, year);
   const DESPESA_FORNECEDORES = buildClienteAgg(d, year);
-  const extOut = buildExtrato(r, d, 200);
+  const extOut = buildExtrato(r, d, 20000);
   const EXTRATO = extOut.EXTRATO;
   const EXTRATO_RECEITAS = extOut.EXTRATO_RECEITAS;
   const EXTRATO_DESPESAS = extOut.EXTRATO_DESPESAS;
@@ -724,9 +724,9 @@ function aggregateTx(txList, year, opts) {
     DESPESA_CATEGORIAS: topN(despCat, 12),
     RECEITA_CLIENTES: topN(recCli, 12),
     DESPESA_FORNECEDORES: topN(despForn, 12),
-    EXTRATO: extratoArr.slice(0, 200),
-    EXTRATO_RECEITAS: extratoRecArr.slice(0, 200),
-    EXTRATO_DESPESAS: extratoDespArr.slice(0, 200),
+    EXTRATO: extratoArr.slice(0, 20000),
+    EXTRATO_RECEITAS: extratoRecArr.slice(0, 20000),
+    EXTRATO_DESPESAS: extratoDespArr.slice(0, 20000),
     RECEITA_DIA: RECEITA_DIA,
     DESPESA_DIA: DESPESA_DIA,
     SALDOS_MES: SALDOS_MES,

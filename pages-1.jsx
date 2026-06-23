@@ -493,13 +493,13 @@ const PageReceita = ({ filters, setFilters, onOpenFilters, statusFilter, drilldo
           <div className="card-title-row">
             <h2 className="card-title">Extrato de receitas {drilldown ? `· ${drilldown.label}` : ""}</h2>
           </div>
-          <div className="t-scroll">
+          <div className="t-scroll" style={{ maxHeight: 400, overflowY: "auto" }}>
             <table className="t">
               <thead>
                 <tr><th>Data</th><th>Categoria</th><th>Cliente</th><th className="num">Receita</th></tr>
               </thead>
               <tbody>
-                {extratoFiltrado.slice(0, 30).map((e, i) => (
+                {extratoFiltrado.slice(0, 500).map((e, i) => (
                   <tr key={i}>
                     <td style={{ fontFamily: "var(--font-mono)", fontSize: 11 }}>{e[0]}</td>
                     <td>{e[2]}</td>
@@ -600,17 +600,17 @@ const PageDespesa = ({ filters, setFilters, onOpenFilters, statusFilter, drilldo
           <BarList items={BFull.DESPESA_CATEGORIAS} color="red" onItemClick={handleCategoria} activeName={activeCategoria} />
         </div>
 
-        <div className="card">
+        <div className="card" style={{ display: "flex", flexDirection: "column", minHeight: 0 }}>
           <div className="card-title-row">
             <h2 className="card-title">Extrato de despesas {drilldown ? `· ${drilldown.label}` : ""}</h2>
           </div>
-          <div className="t-scroll">
+          <div className="t-scroll" style={{ flex: 1, minHeight: 0, overflowY: "auto" }}>
             <table className="t">
               <thead>
                 <tr><th>Data</th><th>Categoria</th><th>Fornecedor</th><th className="num">Despesa</th></tr>
               </thead>
               <tbody>
-                {extratoFiltrado.slice(0, 30).map((e, i) => (
+                {extratoFiltrado.map((e, i) => (
                   <tr key={i}>
                     <td style={{ fontFamily: "var(--font-mono)", fontSize: 11 }}>{e[0]}</td>
                     <td>{e[2]}</td>
