@@ -479,14 +479,14 @@ const PageReceita = ({ filters, setFilters, onOpenFilters, statusFilter, drilldo
 
       <div className="card">
         <h2 className="card-title">Receita por mês</h2>
-        <SingleBars values={BFull.MONTH_DATA.map(m => m.receita)} labels={BFull.MONTHS_FULL} color="green" height={240}
+        <SingleBars values={((drilldown && drilldown.type === "mes") ? BFull : B).MONTH_DATA.map(m => m.receita)} labels={BFull.MONTHS_FULL} color="green" height={240}
           onBarClick={handleBarMes} activeIdx={activeMonthIdx} />
       </div>
 
       <div className="row" style={{ gridTemplateColumns: "minmax(0, 4fr) minmax(0, 5fr) minmax(0, 4fr)" }}>
         <div className="card">
           <h2 className="card-title">Receita por categoria</h2>
-          <BarList items={BFull.RECEITA_CATEGORIAS} color="green" onItemClick={handleCategoria} activeName={activeCategoria} />
+          <BarList items={(drilldown && drilldown.type === "categoria") ? BFull.RECEITA_CATEGORIAS : B.RECEITA_CATEGORIAS} color="green" onItemClick={handleCategoria} activeName={activeCategoria} />
         </div>
 
         <div className="card">
@@ -521,7 +521,7 @@ const PageReceita = ({ filters, setFilters, onOpenFilters, statusFilter, drilldo
 
         <div className="card">
           <h2 className="card-title">Receita por cliente</h2>
-          <BarList items={BFull.RECEITA_CLIENTES} color="green" onItemClick={handleCliente} activeName={activeCliente} />
+          <BarList items={(drilldown && drilldown.type === "cliente") ? BFull.RECEITA_CLIENTES : B.RECEITA_CLIENTES} color="green" onItemClick={handleCliente} activeName={activeCliente} />
         </div>
       </div>
     </div>
@@ -590,14 +590,14 @@ const PageDespesa = ({ filters, setFilters, onOpenFilters, statusFilter, drilldo
 
       <div className="card">
         <h2 className="card-title">Despesa por mês</h2>
-        <SingleBars values={BFull.MONTH_DATA.map(m => m.despesa)} labels={BFull.MONTHS_FULL} color="red" height={240}
+        <SingleBars values={((drilldown && drilldown.type === "mes") ? BFull : B).MONTH_DATA.map(m => m.despesa)} labels={BFull.MONTHS_FULL} color="red" height={240}
           onBarClick={handleBarMes} activeIdx={activeMonthIdx} />
       </div>
 
       <div className="row" style={{ gridTemplateColumns: "minmax(0, 4fr) minmax(0, 5fr) minmax(0, 4fr)" }}>
         <div className="card">
           <h2 className="card-title">Despesas por categoria</h2>
-          <BarList items={BFull.DESPESA_CATEGORIAS} color="red" onItemClick={handleCategoria} activeName={activeCategoria} />
+          <BarList items={(drilldown && drilldown.type === "categoria") ? BFull.DESPESA_CATEGORIAS : B.DESPESA_CATEGORIAS} color="red" onItemClick={handleCategoria} activeName={activeCategoria} />
         </div>
 
         <div className="card">
@@ -632,7 +632,7 @@ const PageDespesa = ({ filters, setFilters, onOpenFilters, statusFilter, drilldo
 
         <div className="card">
           <h2 className="card-title">Despesas por fornecedor</h2>
-          <BarList items={BFull.DESPESA_FORNECEDORES} color="red" onItemClick={handleFornecedor} activeName={activeFornecedor} />
+          <BarList items={(drilldown && drilldown.type === "fornecedor") ? BFull.DESPESA_FORNECEDORES : B.DESPESA_FORNECEDORES} color="red" onItemClick={handleFornecedor} activeName={activeFornecedor} />
         </div>
       </div>
     </div>
